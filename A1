@@ -1,0 +1,12 @@
+list_fn = ["Ramya", "Kavya", "Harika"]
+list_ln = ["K", "D", "B"]
+
+list_fnln = []
+index = 0
+
+
+while index < len(list_fn):
+ list_fnln.append(list_fn[index] + "" + list_ln[index])
+ index += 1
+
+print(list_fnln)
