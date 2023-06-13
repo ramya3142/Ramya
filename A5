@@ -1,4 +1,4 @@
-unsold_products
+
 SELECT p.product_id, p.product_name
 FROM product p LEFT JOIN (
 SELECT product_id, MAX(sale_date) AS last_sale_date
