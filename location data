@@ -1,0 +1,33 @@
+show databases;
+use mysql;
+CREATE TABLE customerss (
+    ID INT,
+    Name VARCHAR(50),
+    Email VARCHAR(50),
+    Store_ID INT,
+    Location VARCHAR(10)
+);
+
+-- Insert sample data into the customers table
+INSERT INTO customerss (ID, Name, Email, Store_ID, Location)
+VALUES
+    (1, 'John Doe', 'john@example.com', 101, 'A'),
+    (2, 'Jane Roe', 'jane@example.com', 101, 'A'),
+    (3, 'Adam Lee', 'adam@example.com', 101, 'A'),
+    (4, 'Lucy Gill', 'lucy@example.com', 101, 'A'),
+    (1, 'John Doe', 'john@example.com', 201, 'B'),
+    (2, 'Jane Roe', 'jane@example.com', 201, 'B'),
+    (3, 'Adam Lee', 'adam@example.com', 201, 'B'),
+    (5, 'Lisa Smith', 'lisa@example.com', 201, 'B'),
+    (6, 'Mike Brown', 'mike@example.com', 201, 'B'),
+    (7, 'Mike Brown', 'mikey@example.com', 201, 'B');
+
+-- Retrieve new customers at Location B
+SELECT *
+FROM customerss
+WHERE Location = 'B'
+    AND (Name, ID) NOT IN (
+        SELECT Name, ID
+        FROM customerss
+        WHERE Location = 'A'
+    )
